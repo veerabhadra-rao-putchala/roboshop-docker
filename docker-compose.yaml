@@ -16,6 +16,14 @@ services:
   user:
     build:
       dockerfile: user.Dockerfile # It moves to mongodb directory
+    image: pvraoveera/cart:1.0.0  # docker build -t pvraoveera/mongodb:1.0.0, pulls from docker hub
+    container_name: cart
+    depends_on:
+    - redis
+    
+  user:
+    build:
+      dockerfile: user.Dockerfile # It moves to mongodb directory
     image: pvraoveera/user:1.0.0  # docker build -t pvraoveera/mongodb:1.0.0, pulls from docker hub
     container_name: user
     depends_on:
