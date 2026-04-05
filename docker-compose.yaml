@@ -12,6 +12,27 @@ services:
       dockerfile: mongodb.Dockerfile # It moves to mongodb directory
     image: pvraoveera/mongodb:1.0.0  # docker build -t pvraoveera/mongodb:1.0.0, pulls from docker hub
     container_name: mongodb
+  
+  user:
+    build:
+      dockerfile: user.Dockerfile # It moves to mongodb directory
+    image: pvraoveera/user:1.0.0  # docker build -t pvraoveera/mongodb:1.0.0, pulls from docker hub
+    container_name: user
+    depends_on:
+    - redis
+  
+  frontend:
+    build:
+      dockerfile: user.Dockerfile # It moves to mongodb directory
+    image: pvraoveera/frontend:1.0.0  # docker build -t pvraoveera/mongodb:1.0.0, pulls from docker hub
+    container_name: frontend
+    depends_on:
+    - catalogue
+    - user
+  
+  redis:
+    image: redis:7.0
+    container_name: redis
 
 networks:
    default:
