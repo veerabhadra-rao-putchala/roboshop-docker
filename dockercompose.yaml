@@ -1,0 +1,20 @@
+services:
+  catalogue:
+    build:
+        dockerfile: catalogue.Dockerfile
+    image: pvraoveera/catalogue:1.0.0
+    container_name: catalogue
+    depends_on:
+    - mongodb
+
+  mongodb:
+    build: 
+      dockerfile: mongodb.Dockerfile # It moves to mongodb directory
+    image: pvraoveera/mongodb:1.0.0  # docker build -t pvraoveera/mongodb:1.0.0, pulls from docker hub
+    container_name: mongodb
+
+networks:
+   default:
+      driver: bridge
+      name: roboshop
+      external: false  # if true, you need to create manually roboshop network
