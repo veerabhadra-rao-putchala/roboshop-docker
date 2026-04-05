@@ -52,6 +52,12 @@ services:
     container_name: shipping
     depends_on:
     - mysql
+  
+  payment:
+    image: rabbitmq:3
+    enviroment: 
+      RABBITMQ_DEFAULT_USER= roboshop
+      RABBITMQ_DEFAULT_PASS= roboshop123
 
 networks:
    default:
