@@ -26,6 +26,8 @@ services:
       dockerfile: user.Dockerfile # It moves to mongodb directory
     image: pvraoveera/frontend:1.0.0  # docker build -t pvraoveera/mongodb:1.0.0, pulls from docker hub
     container_name: frontend
+    ports:
+    - "80:80"
     depends_on:
     - catalogue
     - user
