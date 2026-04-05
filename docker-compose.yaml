@@ -15,24 +15,24 @@ services:
   
   cart:
     build:
-      dockerfile: user.Dockerfile # It moves to mongodb directory
-    image: pvraoveera/cart:1.0.0  # docker build -t pvraoveera/mongodb:1.0.0, pulls from docker hub
+      dockerfile: cart.Dockerfile # It moves to cart directory
+    image: pvraoveera/cart:1.0.0  # docker build -t pvraoveera/cart:1.0.0, pulls from docker hub
     container_name: cart
     depends_on:
     - redis
 
   user:
     build:
-      dockerfile: user.Dockerfile # It moves to mongodb directory
-    image: pvraoveera/user:1.0.0  # docker build -t pvraoveera/mongodb:1.0.0, pulls from docker hub
+      dockerfile: user.Dockerfile # It moves to user directory
+    image: pvraoveera/user:1.0.0  # docker build -t pvraoveera/user:1.0.0, pulls from docker hub
     container_name: user
     depends_on:
     - redis
   
   frontend:
     build:
-      dockerfile: user.Dockerfile # It moves to mongodb directory
-    image: pvraoveera/frontend:1.0.0  # docker build -t pvraoveera/mongodb:1.0.0, pulls from docker hub
+      dockerfile: frontend.Dockerfile # It moves to frontend directory
+    image: pvraoveera/frontend:1.0.0  # docker build -t pvraoveera/frontend:1.0.0, pulls from docker hub
     container_name: frontend
     ports:
     - "80:80"
