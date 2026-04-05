@@ -46,7 +46,7 @@ services:
     image: pvraoveera/mysql:1.0.0
     container_name: mysql
 
-shipping:
+  shipping:
     build: ./shipping
     image: pvraoveera/shipping:1.0.0
     container_name: shipping
