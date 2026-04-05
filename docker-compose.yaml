@@ -46,11 +46,11 @@ services:
     container_name: redis
   
   mysql:
-    build:
-      dockerfile: mysql.Dockerfile
+    build: ./mysql
+      #dockerfile: mysql.Dockerfile
     image: pvraoveera/mysql:1.0.0
     container_name: mysql
-    
+
 
 networks:
    default:
