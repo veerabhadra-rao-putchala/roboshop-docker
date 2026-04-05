@@ -1,37 +1,32 @@
 services:
   catalogue:
-    build:
-        dockerfile: catalogue.Dockerfile
+    build: ./catalogue
     image: pvraoveera/catalogue:1.0.0
     container_name: catalogue
     depends_on:
     - mongodb
 
   mongodb:
-    build: 
-      dockerfile: mongodb.Dockerfile # It moves to mongodb directory
+    build: ./mongodb
     image: pvraoveera/mongodb:1.0.0  # docker build -t pvraoveera/mongodb:1.0.0, pulls from docker hub
     container_name: mongodb
   
   cart:
-    build:
-      dockerfile: cart.Dockerfile # It moves to cart directory
+    build: ./cart
     image: pvraoveera/cart:1.0.0  # docker build -t pvraoveera/cart:1.0.0, pulls from docker hub
     container_name: cart
     depends_on:
     - redis
 
   user:
-    build:
-      dockerfile: user.Dockerfile # It moves to user directory
+    build: ./user # It moves to user directory
     image: pvraoveera/user:1.0.0  # docker build -t pvraoveera/user:1.0.0, pulls from docker hub
     container_name: user
     depends_on:
     - redis
   
   frontend:
-    build:
-      dockerfile: frontend.Dockerfile # It moves to frontend directory
+    build: ./frontend # It moves to frontend directory
     image: pvraoveera/frontend:1.0.0  # docker build -t pvraoveera/frontend:1.0.0, pulls from docker hub
     container_name: frontend
     ports:
@@ -48,7 +43,6 @@ services:
   
   mysql:
     build: ./mysql
-      #dockerfile: mysql.Dockerfile
     image: pvraoveera/mysql:1.0.0
     container_name: mysql
 
