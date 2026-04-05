@@ -39,6 +39,7 @@ services:
     depends_on:
     - catalogue
     - user
+    - cart
   
   redis:
     image: redis:7.0
